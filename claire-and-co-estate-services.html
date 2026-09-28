@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Claire &amp; Co. Estate Services | Private estate care, by appointment only</title>
+<meta name="description" content="Claire & Co. Estate Services provides private estate care for discerning residences. View our rate card, explore our services, and request an appointment.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FBFAF7;
+    --board: rgba(120, 90, 60, .028);
+    --groove: #EEE9E2;
+    --bg-alt: #F7F3EE;
+    --card: #FFFEFC;
+    --ink: #3A2A33;
+    --ink-soft: #5B4E54;
+    --muted: #8F767D;
+    --rose: #B94574;
+    --rose-text: #A94A69;
+    --rose-italic: #B05A75;
+    --petal: #C99AA6;
+    --stem: #BBA5A5;
+    --sage: #A9B89C;
+    --gold: #D4A95A;
+    --gold-deep: #8A6A2E;
+    --line: rgba(143, 118, 125, .35);
+    --line-soft: rgba(143, 118, 125, .2);
+    --btn-bg: #B94574;
+    --btn-bg-hover: #9C3760;
+    --btn-ink: #FFFFFF;
+    --field-bg: #FFFEFC;
+    --err: #A3283F;
+    --serif: "Noto Serif", "DejaVu Serif", Georgia, serif;
+    --sans: "Noto Sans", "DejaVu Sans", "Helvetica Neue", Arial, sans-serif;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #1F1719; --board: rgba(255,255,255,.02); --groove: #2A2023; --bg-alt: #261C1F; --card: #2B2124;
+      --ink: #F6ECE8; --ink-soft: #D3C2C5; --muted: #B39CA2;
+      --rose: #E58FB0; --rose-text: #EDA7C1; --rose-italic: #E9A0BA;
+      --petal: #B57A8C; --stem: #8B7377; --sage: #8FA382; --gold: #D4A95A; --gold-deep: #E0C48C;
+      --line: rgba(179,156,162,.4); --line-soft: rgba(179,156,162,.22);
+      --btn-bg: #E58FB0; --btn-bg-hover: #F0A8C2; --btn-ink: #2A1A1F; --field-bg: #231A1D; --err: #FF9BAB;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #1F1719; --board: rgba(255,255,255,.02); --groove: #2A2023; --bg-alt: #261C1F; --card: #2B2124;
+    --ink: #F6ECE8; --ink-soft: #D3C2C5; --muted: #B39CA2;
+    --rose: #E58FB0; --rose-text: #EDA7C1; --rose-italic: #E9A0BA;
+    --petal: #B57A8C; --stem: #8B7377; --sage: #8FA382; --gold: #D4A95A; --gold-deep: #E0C48C;
+    --line: rgba(179,156,162,.4); --line-soft: rgba(179,156,162,.22);
+    --btn-bg: #E58FB0; --btn-bg-hover: #F0A8C2; --btn-ink: #2A1A1F; --field-bg: #231A1D; --err: #FF9BAB;
+  }
+
+  *, *::before, *::after { box-sizing: inherit; }
+  html { scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 64px); scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background-color: var(--bg);
+    background-image: repeating-linear-gradient(90deg, transparent 0 69px, var(--groove) 69px 72px, var(--board) 72px 141px, var(--groove) 141px 144px);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 1.0625rem;
+    font-weight: 300;
+    letter-spacing: .015em;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3 { font-family: var(--serif); font-weight: 700; margin: 0; color: var(--ink); }
+  h1 { font-size: clamp(2.9rem, 10.5vw, 6.6rem); line-height: 1.05; letter-spacing: -.005em; }
+  h2 { font-size: clamp(1.9rem, 4.2vw, 2.7rem); line-height: 1.2; }
+  h3 { font-size: 1.25rem; line-height: 1.3; }
+  p { margin: 0 0 1em; }
+  a { color: var(--rose-text); text-underline-offset: 3px; }
+  :focus-visible { outline: 2px solid var(--rose); outline-offset: 3px; }
+
+  .wrap { width: min(1120px, 100% - 2.5rem); margin-inline: auto; }
+  section { position: relative; }
+  .lede { color: var(--ink-soft); max-width: 58ch; font-size: 1.125rem; }
+
+  /* Header */
+  .site-header {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20;
+    background: color-mix(in srgb, var(--bg) 93%, transparent);
+    border-bottom: 1px solid var(--line-soft);
+    backdrop-filter: blur(6px);
+  }
+  .site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .7rem 0; flex-wrap: wrap; }
+  .brand { text-decoration: none; color: var(--ink); line-height: 1.1; }
+  .brand b { font-family: var(--serif); font-weight: 700; font-size: 1.3rem; display: block; }
+  .brand span { font-family: var(--serif); font-style: italic; font-size: .92rem; color: var(--rose-italic); }
+  nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 1.6rem; flex-wrap: wrap; }
+  nav a { color: var(--ink); text-decoration: none; font-weight: 400; font-size: .95rem; padding: .25rem 0; border-bottom: 1px solid transparent; }
+  nav a:hover { border-bottom-color: var(--rose); }
+
+  /* Hero */
+  .hero { overflow: hidden; min-height: min(88vh, 860px); display: flex; align-items: center; padding: clamp(4rem, 9vw, 7rem) 0; }
+  .hero .wrap { text-align: center; position: relative; z-index: 1; animation: settle 1s ease-out both; }
+  .spray { position: absolute; width: clamp(170px, 30vw, 380px); height: auto; pointer-events: none; }
+  .spray.tl { top: 0; left: 0; }
+  .spray.br { bottom: 0; right: 0; transform: scaleX(-1); }
+  .kicker { color: var(--rose); font-weight: 600; font-size: clamp(.85rem, 1.6vw, 1.05rem); letter-spacing: .22em; text-transform: uppercase; margin-bottom: 1.6rem; }
+  .hero h1 { margin-bottom: .6rem; }
+  .hero .sub { font-family: var(--serif); font-style: italic; font-weight: 400; color: var(--rose-italic); font-size: clamp(1.8rem, 5.4vw, 3.4rem); line-height: 1.2; margin: 0 0 1.75rem; }
+  .divider { display: flex; align-items: center; justify-content: center; gap: .9rem; margin: 0 auto 2rem; }
+  .divider i { display: block; width: 70px; height: 1px; background: var(--line); }
+  .divider b { display: block; width: 7px; height: 7px; border-radius: 50%; background: var(--rose); }
+  .hero .lede { margin-inline: auto; margin-bottom: 2.2rem; max-width: 36rem; font-size: clamp(1.05rem, 2vw, 1.3rem); letter-spacing: .03em; }
+  .hero .fine { margin: 1.1rem 0 0; font-size: .95rem; color: var(--muted); }
+  @keyframes settle { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+
+  .btn {
+    display: inline-block; font-family: var(--sans); font-weight: 600; font-size: 1.05rem; letter-spacing: .02em;
+    background: var(--btn-bg); color: var(--btn-ink);
+    padding: 1rem 2.4rem; border: 0; border-radius: 999px;
+    text-decoration: none; cursor: pointer; transition: background-color .2s;
+  }
+  .btn:hover { background: var(--btn-bg-hover); }
+  .btn.ghost { background: transparent; color: var(--rose-text); box-shadow: inset 0 0 0 1.5px var(--rose); }
+  .btn.ghost:hover { background: var(--btn-bg); color: var(--btn-ink); }
+  .btn-row { display: flex; gap: .9rem; justify-content: center; flex-wrap: wrap; }
+
+  /* Sections */
+  .block { padding: clamp(3.5rem, 8vw, 6rem) 0; }
+  .solid { background-color: var(--bg-alt); border-block: 1px solid var(--line-soft); }
+  .section-head { margin-bottom: 2.75rem; max-width: 46rem; }
+  .section-head h2 { margin-bottom: 1rem; }
+  .section-head .divider { justify-content: flex-start; margin: 0 0 1.25rem; }
+  .section-head .divider i { width: 44px; }
+
+  /* Approach */
+  .approach { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2.5rem; }
+  .approach div { border-left: 2px solid var(--petal); padding-left: 1.25rem; }
+  .approach h3 { margin-bottom: .6rem; }
+  .approach p { color: var(--ink-soft); margin: 0; }
+
+  /* Services */
+  .services { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 4rem; }
+  .service { padding: 1.75rem 0; border-top: 1px solid var(--line); }
+  .service h3 { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; margin-bottom: .6rem; }
+  .service .from { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: .98rem; color: var(--rose-italic); white-space: nowrap; }
+  .service p { color: var(--ink-soft); margin: 0; }
+  .service ul { margin: .9rem 0 0; padding-left: 1.1rem; color: var(--ink-soft); font-size: .98rem; }
+  .service li { margin-bottom: .2rem; }
+  .service li::marker { color: var(--petal); }
+
+  /* Rate card */
+  .rate-card { position: relative; background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: clamp(1.25rem, 4vw, 2.75rem); }
+  .rate-card h3 { text-align: center; font-size: 1.6rem; margin-bottom: .3rem; }
+  .rate-card .sub { text-align: center; font-family: var(--serif); font-style: italic; color: var(--rose-italic); margin-bottom: 1.75rem; }
+  .table-scroll { overflow-x: auto; max-width: 100%; }
+  table { width: 100%; border-collapse: collapse; min-width: 640px; }
+  th, td { padding: 1rem .75rem; text-align: right; border-bottom: 1px solid var(--line-soft); }
+  th:first-child, td:first-child { text-align: left; }
+  thead th { font-weight: 500; font-size: .92rem; color: var(--rose-text); border-bottom: 1.5px solid var(--petal); vertical-align: bottom; }
+  tbody th { font-family: var(--serif); font-weight: 700; font-size: 1.02rem; }
+  tbody th small { display: block; font-family: var(--sans); font-size: .82rem; color: var(--muted); font-weight: 300; }
+  td { font-family: var(--serif); font-size: 1.1rem; }
+  td.quote { font-family: var(--sans); font-style: normal; font-size: .92rem; color: var(--muted); }
+  tbody tr:last-child th, tbody tr:last-child td { border-bottom: none; }
+  .rate-notes { margin-top: 1.5rem; color: var(--muted); font-size: .95rem; text-align: center; }
+  .addons { margin-top: 3.25rem; }
+  .addons h3 { margin-bottom: 1.25rem; }
+  .addon-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 4rem; }
+  .addon-list li { display: flex; justify-content: space-between; gap: 1rem; padding: .8rem 0; border-bottom: 1px solid var(--line-soft); }
+  .addon-list .amt { font-family: var(--serif); white-space: nowrap; }
+
+  /* Appointment */
+  .booking { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 3rem; align-items: start; }
+  form { display: grid; gap: 1.25rem; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+  label, legend { font-weight: 500; font-size: .95rem; display: block; margin-bottom: .4rem; padding: 0; }
+  input[type="text"], input[type="email"], input[type="tel"], input[type="date"], select, textarea {
+    width: 100%; font: inherit; font-weight: 400; color: var(--ink);
+    background: var(--field-bg); border: 1px solid var(--line); border-radius: 10px;
+    padding: .75rem .95rem; min-height: 3rem;
+  }
+  textarea { min-height: 6.5rem; resize: vertical; }
+  select:disabled { opacity: .55; }
+  fieldset { border: 1px solid var(--line-soft); border-radius: 10px; padding: 1rem 1.1rem .5rem; margin: 0; min-width: 0; }
+  .check { display: flex; align-items: center; gap: .65rem; margin-bottom: .6rem; font-weight: 300; font-size: 1rem; cursor: pointer; }
+  .check input { width: 1.1rem; height: 1.1rem; accent-color: var(--rose); flex: none; }
+  .check .amt { margin-left: auto; color: var(--muted); white-space: nowrap; }
+  .hint { font-size: .9rem; color: var(--muted); margin: 0; }
+  .error { color: var(--err); font-weight: 500; margin: 0; min-height: 1.2em; }
+
+  .summary { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 84px); background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 1.75rem; }
+  .summary h3 { margin-bottom: 1rem; }
+  .summary dl { margin: 0; }
+  .summary .line { display: flex; justify-content: space-between; gap: 1rem; padding: .55rem 0; border-bottom: 1px solid var(--line-soft); font-size: .98rem; }
+  .summary .line dd { margin: 0; white-space: nowrap; }
+  .summary .total { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding-top: 1.1rem; }
+  .summary .total .amount { font-family: var(--serif); font-weight: 700; font-size: 1.7rem; color: var(--rose-text); text-align: right; }
+  .summary .note { margin: 1rem 0 0; font-size: .88rem; color: var(--muted); }
+
+  .sent { margin-top: 1.5rem; background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 1.5rem; }
+  .sent[hidden] { display: none; }
+  .sent h3 { margin-bottom: .6rem; }
+  .sent textarea { min-height: 11rem; font-size: .92rem; margin: 1rem 0; }
+  .sent .btn-row { justify-content: flex-start; }
+
+  /* Contact */
+  .contact { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: 4rem; align-items: start; }
+  .contact dl { margin: 2rem 0 0; }
+  .contact dt { font-weight: 600; font-size: .92rem; color: var(--rose-text); }
+  .contact dd { margin: 0 0 1.25rem; font-family: var(--serif); font-size: 1.2rem; }
+  .contact dd a { color: var(--ink); text-decoration-color: var(--petal); }
+  .contact dd small { display: block; font-family: var(--sans); font-size: .92rem; color: var(--muted); font-weight: 300; }
+
+  footer { padding: 3rem 0 3.5rem; text-align: center; border-top: 1px solid var(--line-soft); color: var(--muted); font-size: .92rem; }
+  footer .name { font-family: var(--serif); font-weight: 700; color: var(--ink); font-size: 1.4rem; margin-bottom: .2rem; }
+  footer .tag { font-family: var(--serif); font-style: italic; color: var(--rose-italic); }
+
+  @media (max-width: 860px) {
+    .services, .addon-list { grid-template-columns: 1fr; }
+    .booking, .contact { grid-template-columns: 1fr; gap: 2.25rem; }
+    .summary { position: static; }
+  }
+  @media (max-width: 560px) {
+    .row { grid-template-columns: 1fr; }
+    nav ul { gap: 1rem; }
+    .site-header .wrap { justify-content: center; }
+    .kicker { letter-spacing: .16em; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .hero .wrap { animation: none; }
+    .btn { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <g id="bloom" fill="none" stroke="var(--petal)" stroke-width="1.8">
+      <ellipse cx="0" cy="-30" rx="18" ry="31" transform="rotate(-8)"/>
+      <ellipse cx="0" cy="-30" rx="18" ry="31" transform="rotate(64)"/>
+      <ellipse cx="0" cy="-30" rx="18" ry="31" transform="rotate(136)"/>
+      <ellipse cx="0" cy="-30" rx="18" ry="31" transform="rotate(208)"/>
+      <ellipse cx="0" cy="-30" rx="18" ry="31" transform="rotate(280)"/>
+      <circle r="6" fill="var(--gold)" stroke="none"/>
+    </g>
+    <symbol id="spray" viewBox="0 0 300 300">
+      <path d="M0 292 C 50 215, 120 135, 205 22" fill="none" stroke="var(--stem)" stroke-width="1.8" stroke-linecap="round"/>
+      <use href="#bloom" transform="translate(132 88)"/>
+      <ellipse cx="86" cy="178" rx="6" ry="15" transform="rotate(34 86 178)" fill="var(--sage)"/>
+      <ellipse cx="170" cy="84" rx="6" ry="15" transform="rotate(18 170 84)" fill="var(--sage)"/>
+      <use href="#bloom" transform="translate(58 232) scale(.42)" opacity=".75"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="#top"><b>Claire &amp; Co.</b><span>Estate Services</span></a>
+    <nav aria-label="Primary">
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#appointments">Appointments</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <svg class="spray tl" viewBox="0 0 300 300" aria-hidden="true"><use href="#spray"/></svg>
+    <svg class="spray br" viewBox="0 0 300 300" aria-hidden="true"><use href="#spray"/></svg>
+    <div class="wrap">
+      <p class="kicker">By appointment only</p>
+      <h1>Claire &amp; Co.</h1>
+      <p class="sub">Estate Services</p>
+      <div class="divider" aria-hidden="true"><i></i><b></b><i></i></div>
+      <p class="lede">Meticulous care for distinguished homes. Private, discreet, and tailored entirely to your residence.</p>
+      <a class="btn" href="#appointments">Request an Appointment</a>
+      <p class="fine">Consultations by referral and inquiry</p>
+    </div>
+  </section>
+
+  <section class="block solid" aria-labelledby="approach-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="divider" aria-hidden="true"><i></i><b></b></div>
+        <h2 id="approach-h">A quiet, consistent standard of care</h2>
+        <p class="lede">We manage the details of your home so that you never have to think about them.</p>
+      </div>
+      <div class="approach">
+        <div>
+          <h3>A dedicated team</h3>
+          <p>Experienced, trained professionals visit your residence every time. Your home will be treated as if it were our own.</p>
+        </div>
+        <div>
+          <h3>Discretion above all</h3>
+          <p>Our staff are vetted, insured, and bound by a confidentiality agreement. We work around your household and your schedule.</p>
+        </div>
+        <div>
+          <h3>Curated to your needs</h3>
+          <p>Every home is different, so your cleaning should be too. We tailor our services to your home, preferences, and priorities creating a cleaning experience that&rsquo;s uniquely yours.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="services" aria-labelledby="services-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="divider" aria-hidden="true"><i></i><b></b></div>
+        <h2 id="services-h">Services</h2>
+        <p class="lede">Every service is carried out with premium, surface-appropriate products and detailed to the standard of a well-run estate.</p>
+      </div>
+      <div class="services" id="services-list"></div>
+    </div>
+  </section>
+
+  <section class="block solid" id="pricing" aria-labelledby="pricing-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="divider" aria-hidden="true"><i></i><b></b></div>
+        <h2 id="pricing-h">Pricing</h2>
+        <p class="lede">Clear rates by residence size. Your final figure is confirmed prior to cleaning, with any additional services, and no surprises.</p>
+      </div>
+      <div class="rate-card">
+        <h3>Rate card</h3>
+        <p class="sub">Price per visit, by residence size</p>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="Rate card table">
+          <table>
+            <thead><tr id="rate-head"></tr></thead>
+            <tbody id="rate-body"></tbody>
+          </table>
+        </div>
+        <p class="rate-notes" id="rate-notes"></p>
+      </div>
+
+      <div class="rate-card" style="margin-top:2.5rem">
+        <h3>Per-room pricing</h3>
+        <p class="sub">For a single room or a custom combination</p>
+        <ul class="addon-list" id="per-room-list"></ul>
+        <p class="rate-notes">Prices vary within each range depending on room size. A per-room estimate is confirmed once we know your space.</p>
+      </div>
+
+      <div class="addons">
+        <h3>Additional details</h3>
+        <ul class="addon-list" id="addon-list"></ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="appointments" aria-labelledby="appt-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="divider" aria-hidden="true"><i></i><b></b></div>
+        <h2 id="appt-h">Request an appointment</h2>
+        <p class="lede">Tell us about your residence and when suits you. We will confirm your visit or walkthrough personally, usually within one business day.</p>
+      </div>
+      <div class="booking">
+        <div>
+          <form id="booking-form" novalidate>
+            <div>
+              <label for="f-service">Service</label>
+              <select id="f-service" name="service"></select>
+            </div>
+            <div class="row">
+              <div>
+                <label for="f-size">Residence size</label>
+                <select id="f-size" name="size"></select>
+              </div>
+              <div>
+                <label for="f-freq">Frequency</label>
+                <select id="f-freq" name="freq"></select>
+              </div>
+            </div>
+            <div class="row">
+              <div>
+                <label for="f-date">Preferred date</label>
+                <input type="date" id="f-date" name="date" required>
+              </div>
+              <div>
+                <label for="f-time">Preferred time</label>
+                <select id="f-time" name="time">
+                  <option>Morning, 8 am to 12 pm</option>
+                  <option>Afternoon, 12 pm to 4 pm</option>
+                  <option>Flexible</option>
+                </select>
+              </div>
+            </div>
+            <fieldset>
+              <legend>Additional details</legend>
+              <div id="f-addons"></div>
+            </fieldset>
+            <div class="row">
+              <div>
+                <label for="f-name">Full name</label>
+                <input type="text" id="f-name" name="name" autocomplete="name" required>
+              </div>
+              <div>
+                <label for="f-phone">Phone</label>
+                <input type="tel" id="f-phone" name="phone" autocomplete="tel">
+              </div>
+            </div>
+            <div>
+              <label for="f-email">Email</label>
+              <input type="email" id="f-email" name="email" autocomplete="email" required>
+            </div>
+            <div>
+              <label for="f-notes">Property address and notes</label>
+              <textarea id="f-notes" name="notes" placeholder="Street address, gate or access details, pets, areas of particular care"></textarea>
+            </div>
+            <p class="hint">A 50% deposit of the service fee is required before cleaning.</p>
+            <p class="hint">Cancellation within 48 hrs of a scheduled appointment will result in a $100 fee.</p>
+            <p class="hint">To help us give your home the detailed care it deserves, please have excessive clutter and personal items picked up before your appointment. If significant clutter, buildup, or children&rsquo;s toys need to be organized or put away before we can begin, an additional fee may apply due to the extra time required.</p>
+            <p class="error" id="form-error" role="alert"></p>
+            <div><button class="btn" type="submit">Prepare appointment request</button></div>
+          </form>
+
+          <div class="sent" id="sent" hidden tabindex="-1">
+            <h3>Your request is ready to send</h3>
+            <p>Send it by email and we will confirm your appointment personally. You can also call us to arrange it by phone.</p>
+            <div class="btn-row">
+              <a class="btn" id="sent-mail" href="#">Send by email</a>
+              <button class="btn ghost" type="button" id="sent-copy">Copy request</button>
+            </div>
+            <label for="sent-text" class="hint" style="margin-top:1.25rem">Request details</label>
+            <textarea id="sent-text" readonly></textarea>
+            <p class="hint" id="sent-status" role="status"></p>
+          </div>
+        </div>
+
+        <aside class="summary" aria-live="polite">
+          <h3>Your estimate</h3>
+          <dl id="sum-lines"></dl>
+          <div class="total"><span>Estimated per visit</span><span class="amount" id="sum-total"></span></div>
+          <p class="note" id="sum-note"></p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="block solid" id="contact" aria-labelledby="contact-h">
+    <div class="wrap contact">
+      <div>
+        <h2 id="contact-h">Contact</h2>
+        <p class="lede" style="margin-top:1rem">Prefer to speak to someone first? Call or Write, and we will give you a free consultation at your convenience.</p>
+        <dl>
+          <dt>Telephone</dt>
+          <dd><a id="c-phone" href="#"></a></dd>
+          <dt>Email</dt>
+          <dd><a id="c-email" href="#"></a></dd>
+          <dt>Hours</dt>
+          <dd>Monday to Saturday<small>By appointment only</small></dd>
+          <dt>Service area</dt>
+          <dd id="c-area"></dd>
+        </dl>
+      </div>
+      <div>
+        <form id="contact-form" novalidate>
+          <div class="row">
+            <div>
+              <label for="c-name">Full name</label>
+              <input type="text" id="c-name" autocomplete="name">
+            </div>
+            <div>
+              <label for="c-from">Email or phone</label>
+              <input type="text" id="c-from">
+            </div>
+          </div>
+          <div>
+            <label for="c-msg">Message</label>
+            <textarea id="c-msg" placeholder="How may we help?"></textarea>
+          </div>
+          <p class="error" id="contact-error" role="alert"></p>
+          <div><button class="btn" type="submit">Prepare message</button></div>
+        </form>
+        <div class="sent" id="c-sent" hidden tabindex="-1">
+          <h3>Your message is ready to send</h3>
+          <div class="btn-row">
+            <a class="btn" id="c-sent-mail" href="#">Send by email</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="name">Claire &amp; Co.</div>
+    <div class="tag">Estate Services</div>
+    <div>By appointment only</div>
+    <div style="margin-top:.75rem" id="year-line"></div>
+  </div>
+</footer>
+
+<script>
+  // ---- Business details: replace these placeholders with your real information ----
+  const BUSINESS = {
+    name: "Claire & Co. Estate Services",
+    phone: "(617) 398-0139",
+    email: "claireandcoes@outlook.com",
+    area: "Private residences across New England"
+  };
+
+  // ---- Pricing data (drives the services list, rate card, and estimate) ----
+  const SIZES = [
+    { id: "s1", label: "Up to 1,500 sq ft" },
+    { id: "s2", label: "1,500 - 2,000 sq ft" },
+    { id: "s3", label: "2,000 - 2,500 sq ft" },
+    { id: "s4", label: "Over 2,500 sq ft" }
+  ];
+  const SERVICES = [
+    { id: "maint", name: "Estate Maintenance", prices: [320, 480, 680, null],
+      desc: "Recurring care that keeps your residence in a constant state of readiness, delivered by the same team every visit.",
+      items: ["Kitchens, baths, and living spaces refreshed and detailed", "Beds made, linens straightened, surfaces polished", "Floors, glass, and fine finishes cared for"] },
+    { id: "deep", name: "Seasonal Deep Care", prices: [640, 940, 1320, null],
+      desc: "A top-to-bottom restoration each season, reaching everything that routine visits do not.",
+      items: ["Baseboards, doors, and cabinetry detailed by hand", "Interior glass, fixtures, vents, and light fittings", "Inside appliances, drawers, and closets"] },
+    { id: "transition", name: "Apartment Departure", prices: [780, 1150, 1600, null],
+      desc: "Your home made perfect before you arrive for the season, and left immaculate when you depart or sell.",
+      items: ["Full residence detailed and aired", "Linens, pantry, and fresh finishing touches", "Coordination with your property manager"] },
+    { id: "event", name: "Event Preparation and Reset", prices: [420, 620, 880, null],
+      desc: "Entertaining spaces prepared before guests arrive, then returned to order the following day.",
+      items: ["Entertaining areas and powder rooms prepared", "Same-day or next-morning reset", "Discreet, low-profile team on site"] },
+    { id: "decor", name: "Seasonal Decorating", prices: [520, 780, 1100, null],
+      desc: "Your residence dressed for each season and holiday, then returned to its everyday elegance when the season ends.",
+      items: ["Design consultation and tailored styling for each room", "Installation of florals, garlands, lighting, and table settings", "Careful removal, packing, and storage of your decor"] },
+    { id: "listing", name: "Listing-Ready Detailed Clean", prices: [700, 1050, 1450, null],
+      desc: "A meticulous top-to-bottom detail that presents your residence at its best for photography, showings, and open houses.",
+      items: ["Every room, surface, and fixture detailed to a showroom finish", "Interior glass, floors, and appliances brought to a shine", "Scheduling coordinated with your listing agent"] },
+    { id: "commercial", name: "Commercial Space", prices: [450, 680, 950, null],
+      desc: "Detailed, discreet care for private offices, studios, and other commercial spaces held to the same standard as our residences.",
+      items: ["Flexible scheduling around business hours", "Reception, workspace, and restroom detailing", "Floors, glass, and fixtures maintained to a polished finish"] },
+    { id: "airbnb", name: "Airbnb Turnover", prices: [180, 260, 340, null],
+      desc: "Fast, reliable turnovers between guests, so every stay begins with a residence that is spotless and ready.",
+      items: ["Full reset between check-out and check-in", "Linens and towels laundered and restyled", "Restocking and staging support available"] }
+  ];
+  const FREQS = [
+    { id: "once", label: "Single visit", off: 0 },
+    { id: "biweekly", label: "Every other week (5% off)", off: 0.05 },
+    { id: "weekly", label: "Weekly (10% off)", off: 0.10 }
+  ];
+  const ADDONS = [
+    { id: "fridge", name: "Refrigerator and pantry reset", price: 95 },
+    { id: "linen", name: "Linen change and laundering", price: 85 },
+    { id: "window_small", name: "Window Small", price: 20 },
+    { id: "window_medium", name: "Window Medium", price: 40 },
+    { id: "window_large", name: "Window Large & Sliders", price: 60 },
+    { id: "eco", name: "Eco-friendly cleaning products", price: 0, included: true },
+    { id: "silver", name: "Silver and fine-surface polishing", price: 120 },
+    { id: "closet", name: "Closet and wardrobe tidying", price: 140 },
+    { id: "cellar", name: "Wine cellar and bar reset", price: 110 },
+    { id: "oven", name: "Oven", price: 75 },
+    { id: "microwave", name: "Microwave", price: 25 }
+  ];
+
+  const PER_ROOM = [
+    { name: "Per Bathroom", range: "$40\u2013$80" },
+    { name: "Kitchen Only", range: "$60\u2013$150" },
+    { name: "Per Bedroom", range: "$30\u2013$90" },
+    { name: "Basement Only", range: "$70\u2013$200" },
+    { name: "Laundry Room", range: "$50\u2013$150" },
+    { name: "Living Room Only", range: "$80\u2013$150" },
+    { name: "Dining Room", range: "$50\u2013$100" }
+  ];
+  const $ = (id) => document.getElementById(id);
+  const money = (n) => "$" + n.toLocaleString("en-US");
+
+  // ---- Static rendering ----
+  $("services-list").innerHTML = SERVICES.map(s =>
+    `<article class="service">
+       <h3><span>${s.name}</span><span class="from">from ${money(s.prices[0])}</span></h3>
+       <p>${s.desc}</p>
+       <ul>${s.items.map(i => `<li>${i}</li>`).join("")}</ul>
+     </article>`).join("");
+
+  $("rate-head").innerHTML = `<th scope="col">Service</th>` + SIZES.map(s => `<th scope="col">${s.label}</th>`).join("");
+  $("rate-body").innerHTML = SERVICES.map(s =>
+    `<tr><th scope="row">${s.name}${s.id === "maint" ? "<small>Per visit, single</small>" : ""}</th>` +
+    s.prices.map(p => p === null ? `<td class="quote">Private quote</td>` : `<td>${money(p)}</td>`).join("") + `</tr>`).join("");
+  $("rate-notes").textContent = "Recurring Estate Maintenance is 5% less every other week and 10% less weekly. Residences over 2,500 sq ft are quoted privately after consultation.";
+
+  $("addon-list").innerHTML = ADDONS.map(a =>
+    `<li><span>${a.name}</span><span class="amt">${a.included ? "Available upon request" : (a.from ? "from " : "") + money(a.price)}</span></li>`).join("");
+
+  $("per-room-list").innerHTML = PER_ROOM.map(r =>
+    `<li><span>${r.name}</span><span class="amt">${r.range}</span></li>`).join("");
+
+  // ---- Contact details ----
+  $("c-phone").textContent = BUSINESS.phone;
+  $("c-phone").href = "tel:" + BUSINESS.phone.replace(/[^\d+]/g, "");
+  $("c-email").textContent = BUSINESS.email;
+  $("c-email").href = "mailto:" + BUSINESS.email;
+  $("c-area").textContent = BUSINESS.area;
+  $("year-line").textContent = "\u00A9 " + new Date().getFullYear() + " " + BUSINESS.name;
+
+  // ---- Booking form setup ----
+  const fService = $("f-service"), fSize = $("f-size"), fFreq = $("f-freq"), fDate = $("f-date");
+  fService.innerHTML = SERVICES.map(s => `<option value="${s.id}">${s.name}</option>`).join("");
+  fSize.innerHTML = SIZES.map(s => `<option value="${s.id}">${s.label}</option>`).join("");
+  fFreq.innerHTML = FREQS.map(f => `<option value="${f.id}">${f.label}</option>`).join("");
+  $("f-addons").innerHTML = ADDONS.map(a =>
+    `<label class="check"><input type="checkbox" name="addon" value="${a.id}"><span>${a.name}</span><span class="amt">${a.included ? "Available upon request" : (a.from ? "from " : "") + money(a.price)}</span></label>`).join("");
+
+  (function setMinDate() {
+    const d = new Date(); d.setDate(d.getDate() + 1);
+    const p = (n) => String(n).padStart(2, "0");
+    fDate.min = `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}`;
+  })();
+
+  function compute() {
+    const svc = SERVICES.find(s => s.id === fService.value);
+    const sizeIdx = SIZES.findIndex(s => s.id === fSize.value);
+    const isMaint = svc.id === "maint";
+    fFreq.disabled = !isMaint;
+    if (!isMaint) fFreq.value = "once";
+    const freq = FREQS.find(f => f.id === fFreq.value);
+    const base = svc.prices[sizeIdx];
+    const addons = ADDONS.filter(a => document.querySelector(`input[name="addon"][value="${a.id}"]`).checked);
+    const lines = [];
+    let total = 0, quote = base === null;
+    if (!quote) {
+      lines.push([`${svc.name}`, money(base)]);
+      total = base;
+      if (freq.off) {
+        const disc = Math.round(base * freq.off);
+        lines.push([`Recurring rate (${Math.round(freq.off * 100)}% off)`, "\u2212" + money(disc)]);
+        total -= disc;
+      }
+    } else {
+      lines.push([svc.name, "Private quote"]);
+    }
+    addons.forEach(a => { lines.push([a.name, a.included ? "Available upon request" : (a.from ? "from " : "") + money(a.price)]); if (!quote) total += a.price; });
+    return { svc, size: SIZES[sizeIdx], freq, addons, lines, total, quote, hasFrom: addons.some(a => a.from) };
+  }
+
+  function renderSummary() {
+    const c = compute();
+    $("sum-lines").innerHTML = c.lines.map(l => `<div class="line"><dt>${l[0]}</dt><dd>${l[1]}</dd></div>`).join("");
+    $("sum-total").textContent = c.quote ? "Private quote" : (c.hasFrom ? "from " : "") + money(c.total);
+    $("sum-note").textContent = c.quote
+      ? "Residences over 2,500 sq ft are quoted after a private walkthrough."
+      : "An estimate only. The final figure is confirmed at your convenience. Once accepted, we will send a link to our payment processor for a 50% deposit before our cleaners care for your home.";
+  }
+  ["f-service", "f-size", "f-freq"].forEach(id => $(id).addEventListener("change", renderSummary));
+  document.querySelectorAll('input[name="addon"]').forEach(el => el.addEventListener("change", renderSummary));
+  renderSummary();
+
+  function niceDate(v) {
+    const d = new Date(v + "T12:00:00");
+    return isNaN(d) ? v : d.toLocaleDateString("en-US", { weekday: "long", year: "numeric", month: "long", day: "numeric" });
+  }
+  function mailtoLink(subject, body) {
+    return "mailto:" + BUSINESS.email + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+  }
+  async function copyText(text, statusEl) {
+    try {
+      await navigator.clipboard.writeText(text);
+      statusEl.textContent = "Copied. Paste it into an email or message to us.";
+    } catch (e) {
+      const ta = $("sent-text"); ta.focus(); ta.select();
+      statusEl.textContent = "Select the text above and copy it to send to us.";
+    }
+  }
+
+  // ---- Booking submit ----
+  $("booking-form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const err = $("form-error");
+    const name = $("f-name").value.trim(), email = $("f-email").value.trim(), phone = $("f-phone").value.trim();
+    if (!fDate.value) { err.textContent = "Choose a preferred date."; fDate.focus(); return; }
+    if (!name) { err.textContent = "Enter your full name."; $("f-name").focus(); return; }
+    if (!/^\S+@\S+\.\S+$/.test(email)) { err.textContent = "Enter a valid email address so we can confirm your appointment."; $("f-email").focus(); return; }
+    err.textContent = "";
+    const c = compute();
+    const total = c.quote ? "Private quote" : (c.hasFrom ? "from " : "") + money(c.total);
+    const body = [
+      "Appointment request for " + BUSINESS.name,
+      "",
+      "Service: " + c.svc.name,
+      "Residence size: " + c.size.label,
+      "Frequency: " + c.freq.label,
+      "Preferred date: " + niceDate(fDate.value),
+      "Preferred time: " + $("f-time").value,
+      "Additional details: " + (c.addons.length ? c.addons.map(a => a.name).join(", ") : "None"),
+      "Estimated per visit: " + total,
+      "",
+      "Name: " + name,
+      "Email: " + email,
+      "Phone: " + (phone || "Not provided"),
+      "Property address and notes: " + ($("f-notes").value.trim() || "None")
+    ].join("\n");
+    $("sent-text").value = body;
+    $("sent-mail").href = mailtoLink("Appointment request: " + c.svc.name, body);
+    $("sent-status").textContent = "";
+    const sent = $("sent"); sent.hidden = false; sent.focus();
+    sent.scrollIntoView({ behavior: "smooth", block: "center" });
+  });
+  $("sent-copy").addEventListener("click", () => copyText($("sent-text").value, $("sent-status")));
+
+  // ---- Contact submit ----
+  $("contact-form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const name = $("c-name").value.trim(), from = $("c-from").value.trim(), msg = $("c-msg").value.trim();
+    if (!name || !from || !msg) { $("contact-error").textContent = "Enter your name, an email or phone number, and a message."; return; }
+    $("contact-error").textContent = "";
+    const body = msg + "\n\nName: " + name + "\nReply to: " + from;
+    $("c-sent-mail").href = mailtoLink("Message from " + name, body);
+    const s = $("c-sent"); s.hidden = false; s.focus();
+  });
+</script>
+</body>
+</html>
